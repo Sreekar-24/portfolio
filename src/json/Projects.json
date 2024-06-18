@@ -1,0 +1,34 @@
+[
+    {
+        "name": "Chess Engine",
+        "image": "Chess-Image",
+        "imageAlt": "chess image",
+        "description": "Created a chess Application by FIDE rules and regulation. with evaluation system for move with move suggestions UI with chess bot long with it.",
+        "skills":["JavaScript","Html","CSS","React","Game Theory"],
+        "link":"/"
+    },
+    {
+        "name": "Heart Diseases Prediction",
+        "image": "Data-Image",
+        "imageAlt": "data image",
+        "description": "This project uses the data from different people with different age, cholesterol, resting bp etc.. To predict whether the person in case is having a heart disease or not with almost 88 percentage accuracy. It uses the ensemble technique like bragging, cat boost to predict the data. Bagging algorithm is tuned according to data to get higher accuracy in predictions.",
+        "skills":["Python","Sci-kit","Machine learning","Jupyter Notebook", "matplotlib"],
+        "link":"/"
+    },
+    {
+        "name": "Face Detection and Hiding System",
+        "image": "Face-Image",
+        "imageAlt": "face image",
+        "description": "With upload of a single image of a person, can blur that face or replace it with image/ emoji in entire video, or can hide all other persons face except the face uploaded. Has also works with best accuracy on real time with .",
+        "skills":["Python","OpenCV","pandas","numpy","AI"],
+        "link":"/"
+    },
+    {
+        "name": "Portfolio Website",
+        "image": "Web-Image",
+        "imageAlt": "web image",
+        "description": "Portfolio website templete describing skills, projects, experience, contacts and resume.",
+        "skills":["JavaScript","Html","CSS","React"],
+        "link":"/"
+    }
+]

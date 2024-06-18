@@ -1,38 +1,476 @@
-.App {
-  text-align: center;
-}
+@import url("./styles/reset.css");
+@import url("https://fonts.googleapis.com/css2?family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Mono:ital,wght@0,300..700;1,300..700&display=swap");
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --primary-color: #ff9900;
+  --primary-color-200: #ff990069;
+  --primary-color-300: #413525b5;
+  --secondary-color: #ffd19a;
+  --bg-color: #0e0201;
+  --bg-color-200: #0e02017b;
+  --text-color: #ffffff;
+  --text-color-200: #ffffff7c;
+  --laoding-time: 7s;
+  --gradient-x: 0px;
+  --gradient-y: 0px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(251, 194, 24, 0.1);
+  border-radius: 1rem;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 1rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
+}
+::selection {
+  color: var(--bg-color);
+  background-color: var(--primary-color);
+}
+html {
+  font-family: "Quattrocento Sans" !important;
+  font-size: 62.5% !important;
+  box-sizing: border-box;
+  scrollbar-width: none;
+}
+@keyframes animate-ball {
+  0% {
+    left: 0;
+    -webkit-animation-timing-function: ease-out;
+    bottom: 0;
+  }
+  20% {
+    left: 50%;
+    -webkit-animation-timing-function: ease-out;
+    bottom: 0;
+  }
+  21% {
+    left: 50%;
+    bottom: 3%;
+    -webkit-animation-timing-function: ease-in;
+  }
+  23% {
+    left: 50%;
+    bottom: 0;
+    -webkit-animation-timing-function: ease-out;
+  }
+  26% {
+    left: 50%;
+    bottom: 7%;
+    -webkit-animation-timing-function: ease-in;
+  }
+  30% {
+    left: 50%;
+    bottom: 0;
+    -webkit-animation-timing-function: ease-out;
+  }
+  35% {
+    left: 50%;
+    bottom: 15%;
+    -webkit-animation-timing-function: ease-in;
+  }
+  41% {
+    left: 50%;
+    bottom: 0;
+    -webkit-animation-timing-function: ease-out;
+  }
+  49% {
+    left: 50%;
+    bottom: 25%;
+    -webkit-animation-timing-function: ease-in;
+  }
+  56% {
+    left: 50%;
+    bottom: 0;
+    -webkit-animation-timing-function: ease-out;
+  }
+  62% {
+    left: 50%;
+    bottom: 36%;
+    -webkit-animation-timing-function: ease-in;
+  }
+  73% {
+    left: 50%;
+    bottom: 0;
+    -webkit-animation-timing-function: ease-out;
+  }
+  80% {
+    bottom: 50%;
+    transform: translateY(50%);
+    left: 50%;
+    width: 30px;
+    height: 30px;
+  }
+  99.9% {
+    bottom: 50%;
+    transform: translateY(50%);
+    left: 50%;
+    width: 200vmax;
+    height: 200vmax;
+  }
+  100% {
+    bottom: 50%;
+    transform: translateY(50%);
+    left: 50%;
+    width: 200vmax;
+    height: 200vmax;
+    display: none;
+    visibility: hidden;
   }
 }
-
-.App-header {
-  background-color: #282c34;
+@keyframes display {
+  0% {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+  }
+  100% {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+  }
+}
+.app {
+  background-color: var(--bg-color);
+  color: var(--text-color);
   min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+.pre-loader {
+  content: "";
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  bottom: 0;
+  display: block;
+  background-color: orange;
+  border-radius: 50%;
+  translate: -50%;
+  animation: animate-ball var(--laoding-time) ease-in;
+  animation-fill-mode: both;
+}
+.main-container {
+  display: flex;
+  gap: 1rem;
+  padding: 0 10rem;
+  height: 100vh;
+  overflow: auto;
+  max-width: 1280px;
+  margin: auto;
+  box-sizing: border-box;
+  background: radial-gradient(
+    400px at var(--gradient-x) var(--gradient-y),
+    var(--primary-color-300),
+    transparent 80%
+  );
+  scrollbar-width: none;
+  animation: display 0.5s ease-in var(--laoding-time) both;
+}
+.right-side {
+  flex: 50%;
+  width: 50%;
+  box-sizing: border-box;
+}
+.left-side {
+  flex: 50%;
+  width: 50%;
+  box-sizing: border-box;
+  padding: 3rem 0;
+  padding-bottom: 6rem;
+  height: fit-content;
+}
+.my-content {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+.about-me {
+  padding-top: 2rem;
+}
+.my-name > span {
+  display: block;
+  font-size: 4rem;
+  font-weight: 700;
+}
+.name {
+  color: var(--primary-color);
+  font-family: "Red Hat Mono", monospace;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.my-titles {
+  font-family: "Red Hat Mono", monospace;
+  font-size: 2rem;
+  margin: 1rem 0;
+  text-transform: uppercase;
+}
+.section-nav > ul {
   display: flex;
   flex-direction: column;
+  position: relative;
+  gap: 1rem;
+}
+.section-nav > ul::before {
+  content: "";
+  width: 2px;
+  height: 100%;
+  display: block;
+  position: absolute;
+  background-color: var(--primary-color);
+  top: 0;
+  left: 0;
+}
+.section-nav > ul > li {
+  font-family: "Red Hat Mono", monospace;
+  width: 0;
+  min-width: fit-content;
+  border: 2px solid var(--primary-color);
+  transition: width 0.5s ease-out;
+  font-weight: 500;
+}
+.section-nav > ul > li > a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  transition: width 0.5s ease-out;
+  width: 100%;
+  box-sizing: border-box;
+}
+.section-nav > ul > li:hover > a,
+.section-nav > ul > li:focus > a,
+.section-nav > ul > li.active > a {
+  text-align: right;
+  width: 100%;
+  height: 100%;
+}
+.section-nav > ul > li:hover,
+.section-nav > ul > li:focus,
+.section-nav > ul > li.active {
+  width: 100px;
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+}
+.logo {
+  color: var(--text-color-200);
+  fill: var(--text-color-200);
+  width: 30px;
+  height: 30px;
+}
+.logo:hover {
+  color: var(--primary-color-200);
+  fill: var(--primary-color-200);
+}
+.socials > ul {
+  display: flex;
+  gap: 3rem;
+}
+.socials {
+  margin: 1rem 0;
+}
+.section-header {
+  font-size: 3rem;
+  color: var(--primary-color);
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  text-transform: capitalize;
+}
+.section-header::after {
+  content: "";
+  position: absolute;
+  border-bottom: 3px solid var(--primary-color-200);
+  display: block;
+  width: 0;
+  transition: width 0.5s ease-in;
+}
+.section-header:hover,
+.section-header:focus,
+.section-header.active {
+  color: var(--primary-color);
+}
+.section-header:hover::after,
+.section-header:focus::after,
+.section-header.active::after {
+  width: 100%;
+}
+section {
+  margin: 3rem 0;
+}
+.description {
+  font-size: 2rem;
+  line-height: 1.5;
+}
+.exp-content .description > span {
+  font-weight: 700;
+  color: var(--secondary-color);
+}
+.exp-content .description > span:hover {
+  color: var(--primary-color);
+}
+.company-name {
+  font-size: 2.5rem;
+  margin: 1rem 0;
+  color: var(--secondary-color);
+}
+.duration {
+  font-size: 1rem;
+  display: block;
+  margin: 1rem 0;
+  font-family: "Red Hat Mono", monospace;
+}
+.skill {
+  display: flex;
+  gap: 1rem;
+  line-height: 1.5;
+}
+.skill h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.skill span {
+  font-family: "Red Hat Mono", monospace;
+  align-content: center;
+  align-content: center;
+  font-size: 1.5rem;
+  padding: 0 0.5rem;
+}
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.project-card {
+  padding: 0 1rem;
+}
+.project-name {
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 0.5rem;
+  margin: 2rem 0;
+  font-family: "Red Hat Mono", monospace;
+  color: var(--bg-color);
+  background: var(--primary-color);
+  text-align: center;
+  position: sticky;
+  top: 0;
+}
+.project-contents {
+  display: flex;
+  gap: 1rem;
   align-items: center;
+}
+.image-container {
+  background-color: var(--primary-color-200);
+  width: 40%;
+  border-radius: 1rem;
+  border: 2px solid var(--primary-color);
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+.project-details {
+  width: 60%;
+}
+.project-skills {
+  margin: 1rem 0;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.project-skills li {
+  display: inline-block;
+  font-family: "Red Hat Mono", monospace;
+  align-content: center;
+  font-size: 1.5rem;
+  padding: 0 0.5rem;
+  border: 1px solid var(--secondary-color);
+  background-color: var(--secondary-color);
+  color: var(--bg-color);
+  font-weight: 500;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  text-transform: capitalize;
+}
+.project-skills li:hover {
+  background-color: var(--primary-color-200);
+  font-weight: 400;
+  color: var(--text-color);
+}
+.primary-button {
+  border: 2px solid var(--primary-color);
+  background-color: var(--bg-color);
+  color: var(--secondary-color);
+  padding: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-radius: 1rem;
+  margin: auto;
+  cursor: pointer;
+}
+.primary-button > a {
+  padding: 0.5rem 1rem;
+  display: block;
+}
+.primary-button:hover {
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+}
+.project-list {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+}
+#resume {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  margin: 1rem 0;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (min-width: 1280px) {
+  .main-container {
+    scrollbar-width: thin;
   }
-  to {
-    transform: rotate(360deg);
+}
+@media (max-width: 950px) {
+  .main-container {
+    padding: 5rem;
+    flex-wrap: wrap;
+  }
+  .right-side {
+    position: static;
+    height: auto;
+  }
+  .project-name {
+    position: static;
+  }
+}
+@media (max-width: 450px) {
+  .main-container {
+    padding: 2rem;
+  }
+  .project-contents {
+    flex-wrap: wrap;
+  }
+  .image-container {
+    width: 100%;
+  }
+  .project-details {
+    width: auto;
+  }
+  .skill {
+    flex-direction: column;
   }
 }
