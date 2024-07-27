@@ -439,11 +439,6 @@ section {
   align-items: center;
   margin: 1rem 0;
 }
-@media (min-width: 1280px) {
-  .main-container {
-    scrollbar-width: thin;
-  }
-}
 @media (max-width: 950px) {
   .main-container {
     padding: 5rem;
